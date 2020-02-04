@@ -12,24 +12,41 @@ library(shiny)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
-    # Sidebar with a slider input for number of bins 
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+    titlePanel("Cost and Return of Storing Grain"),
+    
+    fluidRow(
+        
+        column(4,
+               
+               wellPanel(
+                   numericInput("num", 
+                                h5("Bushels to Store"), 
+                                value = 30000),
+               sliderInput("price", h5("Cash Grain Price at Harvest $/bu"),
+                           min = 0, max = 8.00, value = 4.00, step = .1),
+               sliderInput("interest", h5("Short Term Interst Rate %"),
+                           min = 2, max = 20, value = 7.00, step = 1)
+               ),
+               
+               wellPanel(
+                   h4("On Farm Costs to Storage"),
+                   sliderInput("moist", h5("Moisture of Grain %"),
+                               min = 10, max = 45, value = 13.5, step = .5),
+                   sliderInput("shrink", h5("Shrink Factor %"),
+                               min = 0, max = 3, value = 1.5, step = .1),
+                   sliderInput("handling", h5("Extra handling cost into and out $/bu"),
+                               min = 0, max = .2, value = .02, step = .01),
+                   sliderInput("transp", h5("Extra transportation cost $/bu"),
+                               min = 0, max = .2, value = .08, step = .01)
+               )
+               
+               )       
         ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-           plotOutput("distPlot")
+        
+        column(8,
+               plotOutput("distPlot")
         )
-    )
+    
 )
 
 # Define server logic required to draw a histogram
