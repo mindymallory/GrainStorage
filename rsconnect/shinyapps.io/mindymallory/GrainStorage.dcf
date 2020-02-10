@@ -1,0 +1,12 @@
+name: GrainStorage
+title: GrainStorage
+username:
+account: mindymallory
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1771036
+bundleId: 2779820
+url: https://mindymallory.shinyapps.io/GrainStorage/
+when: 1581002137.39714
+asMultiple: FALSE
+asStatic: FALSE

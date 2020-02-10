@@ -13,13 +13,14 @@ library(tidyr)
 library(dplyr)
 library(shinythemes)
 library(ggpubr)
+library(ggdark)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(theme = shinytheme("slate"),
     
    
     #titlePanel("Cost and Return of Storing Grain"),
-    titlePanel(img(src='logo.PNG', width = '25%')),
+    titlePanel(title=div(img(src="logo.png", height = "25%", width = "25%"))),
   
     # fluidRow(h3(id="big-heading", "   Cost and Return of Storing Grain"),
     #          tags$style(HTML("#big-heading{color: black, face: times;}")), style = "background-color: #B1810B;",
